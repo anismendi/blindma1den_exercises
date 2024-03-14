@@ -1,5 +1,5 @@
 from datetime import datetime
-import getpass
+import getpass, random
 
 account_info = {
    'username': "",
@@ -52,31 +52,35 @@ rooms_list = list(rooms.keys())
 prices_list = list(rooms_price.values())
 
 # Login / Register
-# ! Update register function. Ask name and surname.
 def register():
   min_username_length = 8
   max_username_length = 12
   min_password_length = 10
   max_password_length = 14
 
+  name_register = input('Enter your name: ')
+  account_info['name'] = name_register.capitalize()
+  surname_register = input('Enter your surname: ')
+  account_info['surname'] = surname_register.capitalize()
+
   while True:
     register_username = input('Enter the username you want to use: ')
     if len(register_username) < min_username_length or len(register_username) > max_username_length:
       print('** Username input should be between 8 and 12 characters. **\n')
     else:
-      account_info['username'] = register_username
+      account_info['username'] = register_username.lower()
       break
 
   while True:
     register_password = getpass.getpass('Enter the password you want to use: ')
     if len(register_password) < min_password_length or len(register_password) > max_password_length:
-      print('** Password input should be between 10 and 14 characters. **')
+      print('\n** Password input should be between 10 and 14 characters. **\n')
     else:
       confirm_password = getpass.getpass('Re-enter the password to confirm: ')
       if confirm_password != register_password:
-        print('** Passwords are not the same. **')
+        print('\n** Passwords are not the same. **\n')
       else:
-        print('** CONGRATULATIONS! Your account has been successfully created. **')
+        print('\n** CONGRATULATIONS! Your account has been successfully created. **\n')
         account_info['password'] = register_password
         break
 
@@ -117,6 +121,16 @@ def validate_password():
   elif attempts == attempts_limit:
     print('You did not input your credentials correctly. System is locked. Try again later.')
     exit()
+
+def main_menu():
+  time = datetime.now()
+  company_name = 'U-GOGO'
+  current_date = time.strftime('%x')
+  current_time = time.strftime('%H:%M')
+  greetings = ['Hello,', 'Welcome,', 'Hey there,', 'Hi,']
+
+  print(f'\n** {greetings[random.randint(0,3)]} {account_info["name"]} to {company_name}!')
+  print(f'Date: {current_date} - Time: {current_time} **')
 
 def login():
   validate_username()
