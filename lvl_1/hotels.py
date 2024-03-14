@@ -137,6 +137,7 @@ def login():
   validate_password()
 
 def login_menu():
+  farewells = ['Goodbye', 'See you soon', 'Take care']
   options = ['1. Register', '2. Login', '0. Exit']
 
   for option in options:
@@ -151,7 +152,7 @@ def login_menu():
     case '2':
       login()
     case '0':
-      print('Have a nice day!')
+      print(f'{farewells[random.randint(0,2)]}!')
       exit()
     case _:
       print('That option does not exist.')
