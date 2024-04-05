@@ -9,8 +9,8 @@ account_info = {
    'ID': "",
    'passport': "",
    'chosen_room_type': [],
-   'chosen_country': [],
-   'chosen_cities': [],
+   'chosen_country': '',
+   'chosen_city': '',
    'date': ""
    }
 
@@ -157,9 +157,102 @@ def booking():
         print('This option does not exist. Try again\n')
         choose_country()
 
-  choose_country()
+  def choose_city():
+    print(f'\nYou selected: {account_info["chosen_country"]}')
+    print('Now, choose a city:')
 
-  #def choose_city():
+    if account_info['chosen_country'] == countries[0]:
+      i = 0
+      for city in spanish_hotels:
+        i += 1
+        print(f'{i}. {city}')
+
+      ask_city = int(input('\nWhat city would you like to stay?\nEnter a number: '))
+      match ask_city:
+        case 1:
+          account_info['chosen_city'] = spanish_hotels[0]
+        case 2:
+          account_info['chosen_city'] = spanish_hotels[1]
+        case 3:
+          account_info['chosen_city'] = spanish_hotels[2]
+        case _:
+          print('This option does not exist. Try again')
+          choose_city()
+
+    elif account_info['chosen_country'] == countries[1]:
+      i = 0
+      for city in german_hotels:
+        i += 1
+        print(f'{i}. {city}')
+
+      ask_city = int(input('\nWhat city would you like to stay?\nEnter a number: '))
+      match ask_city:
+        case 1:
+          account_info['chosen_city'] = german_hotels[0]
+        case 2:
+          account_info['chosen_city'] = german_hotels[1]
+        case 3:
+          account_info['chosen_city'] = german_hotels[2]
+        case _:
+          print('This option does not exist. Try again')
+          choose_city()
+
+    elif account_info['chosen_country'] == countries[2]:
+      i = 0
+      for city in italian_hotels:
+        i += 1
+        print(f'{i}. {city}')
+
+      ask_city = int(input('\nWhat city would you like to stay?\nEnter a number: '))
+      match ask_city:
+        case 1:
+          account_info['chosen_city'] = italian_hotels[0]
+        case 2:
+          account_info['chosen_city'] = italian_hotels[1]
+        case 3:
+          account_info['chosen_city'] = italian_hotels[2]
+        case _:
+          print('This option does not exist. Try again')
+          choose_city()
+
+    elif account_info['chosen_country'] == countries[3]:
+      i = 0
+      for city in french_hotels:
+        i += 1
+        print(f'{i}. {city}')
+
+      ask_city = int(input('\nWhat city would you like to stay?\nEnter a number: '))
+      match ask_city:
+        case 1:
+          account_info['chosen_city'] = french_hotels[0]
+        case 2:
+          account_info['chosen_city'] = french_hotels[1]
+        case 3:
+          account_info['chosen_city'] = french_hotels[2]
+        case _:
+          print('This option does not exist. Try again')
+          choose_city()
+
+    elif account_info['chosen_country'] == countries[4]:
+      i = 0
+      for city in portuguese_hotels:
+        i += 1
+        print(f'{i}. {city}')
+
+      ask_city = int(input('\nWhat city would you like to stay?\nEnter a number: '))
+      match ask_city:
+        case 1:
+          account_info['chosen_city'] = portuguese_hotels[0]
+        case 2:
+          account_info['chosen_city'] = portuguese_hotels[1]
+        case 3:
+          account_info['chosen_city'] = portuguese_hotels[2]
+        case _:
+          print('This option does not exist. Try again')
+          choose_city()
+
+  choose_country()
+  choose_city()
 
   #def choose_room_type():
 
