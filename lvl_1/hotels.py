@@ -8,9 +8,9 @@ account_info = {
    'surname': "",
    'ID': "",
    'passport': "",
-   'chosen_room_type': [],
-   'chosen_countries': [],
-   'chosen_cities': [],
+   'chosen_room_types': [],
+   'chosen_country': '',
+   'chosen_city': '',
    'date': ""
    }
 
@@ -124,7 +124,7 @@ def validate_password():
 
 def main_menu():
   time = datetime.now()
-  company_name = 'U-GOGO'
+  company_name = 'RH Hotels'
   current_date = time.strftime('%x')
   current_time = time.strftime('%H:%M')
   greetings = ['Hello,', 'Welcome,', 'Hey there,', 'Hi,']
