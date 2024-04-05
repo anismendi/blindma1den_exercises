@@ -122,7 +122,7 @@ def validate_password():
     print('You did not input your credentials correctly. System is locked. Try again later.')
     exit()
 
-def main_menu():
+def booking():
   time = datetime.now()
   company_name = 'U-GOGO'
   current_date = time.strftime('%x')
@@ -130,7 +130,43 @@ def main_menu():
   greetings = ['Hello,', 'Welcome,', 'Hey there,', 'Hi,']
 
   print(f'\n** {greetings[random.randint(0,3)]} {account_info["name"]} to {company_name}!')
-  print(f'Date: {current_date} - Time: {current_time} **')
+  print(f'Date: {current_date} - Time: {current_time} **\n')
+
+  def choose_country():
+
+    print('Our best hotels are in these countries:')
+    i = 0
+    for country in countries:
+      i += 1
+      print(f'{i}. {country}')
+
+    ask_country = int(input('\nWhat country are you traveling to?\nEnter a number: '))
+
+    match ask_country:
+      case 1:
+        account_info['chosen_countries'] = countries[0]
+      case 2:
+        account_info['chosen_countries'] = countries[1]
+      case 3:
+        account_info['chosen_countries'] = countries[2]
+      case 4:
+        account_info['chosen_countries'] = countries[3]
+      case 5:
+        account_info['chosen_countries'] = countries[4]
+      case _:
+        print('This option does not exist. Try again\n')
+        choose_country()
+
+  choose_country()
+
+  #def choose_city():
+
+  #def choose_room_type():
+
+  #def number_of_nights():
+
+  #def collect_data():
+
 
 def login():
   validate_username()
@@ -169,6 +205,7 @@ def login_menu():
 
 def run_app():
 
-  login_menu()
+  #login_menu()
+  booking()
 
 run_app()
