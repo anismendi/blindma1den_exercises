@@ -9,7 +9,7 @@ account_info = {
    'ID': "",
    'passport': "",
    'chosen_room_type': [],
-   'chosen_countries': [],
+   'chosen_country': [],
    'chosen_cities': [],
    'date': ""
    }
@@ -144,15 +144,15 @@ def booking():
 
     match ask_country:
       case 1:
-        account_info['chosen_countries'] = countries[0]
+        account_info['chosen_country'] = countries[0]
       case 2:
-        account_info['chosen_countries'] = countries[1]
+        account_info['chosen_country'] = countries[1]
       case 3:
-        account_info['chosen_countries'] = countries[2]
+        account_info['chosen_country'] = countries[2]
       case 4:
-        account_info['chosen_countries'] = countries[3]
+        account_info['chosen_country'] = countries[3]
       case 5:
-        account_info['chosen_countries'] = countries[4]
+        account_info['chosen_country'] = countries[4]
       case _:
         print('This option does not exist. Try again\n')
         choose_country()
